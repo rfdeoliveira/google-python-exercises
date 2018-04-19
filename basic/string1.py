@@ -23,11 +23,10 @@
 # So donuts(5) returns 'Number of donuts: 5'
 # and donuts(23) returns 'Number of donuts: many'
 def donuts(count):
-    if count >= 10:
+    if count > 9:
         count_str = 'many'
     else:
         count_str = str(count)
-
     return 'Number of donuts: {}'.format(count_str)
 
 
@@ -41,7 +40,6 @@ def both_ends(s):
         chars = s[:2] + s[-2:]
     else:
         chars = ''
-
     return chars
 
 
