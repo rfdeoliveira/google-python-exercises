@@ -23,11 +23,8 @@
 # So donuts(5) returns 'Number of donuts: 5'
 # and donuts(23) returns 'Number of donuts: many'
 def donuts(count):
-    if count > 9:
-        count_str = 'many'
-    else:
-        count_str = str(count)
-    return 'Number of donuts: {}'.format(count_str)
+    answer = 'many' if count >= 10 else str(count)
+    return 'Number of donuts: {}'.format(answer)
 
 
 # B. both_ends
@@ -36,10 +33,9 @@ def donuts(count):
 # so 'spring' yields 'spng'. However, if the string length
 # is less than 2, return instead the empty string.
 def both_ends(s):
+    chars = ''
     if len(s) > 2:
-        chars = s[:2] + s[-2:]
-    else:
-        chars = ''
+        chars = ''.join([s[:2], s[-2:]])
     return chars
 
 
@@ -53,9 +49,8 @@ def both_ends(s):
 # Hint: s.replace(stra, strb) returns a version of string s
 # where all instances of stra have been replaced by strb.
 def fix_start(s):
-    _, first, rest = s.partition(s[0])
-    return first + rest.replace(first, '*')
-
+    first, remainder = s[0], s[1:]
+    return first + remainder.replace(first, '*')
 
 # D. MixUp
 # Given strings a and b, return a single string with a and b separated
@@ -67,7 +62,7 @@ def fix_start(s):
 def mix_up(a, b):
     new_a = b[:2] + a[2:]
     new_b = a[:2] + b[2:]
-    return '{} {}'.format(new_a, new_b)
+    return ' '.join([new_a, new_b])
 
 
 # Provided simple test() function used in main() to print
