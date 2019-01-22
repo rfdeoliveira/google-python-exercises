@@ -22,11 +22,11 @@
 # and last chars of the string are the same.
 # Note: python does not have a ++ operator, but += works.
 def match_ends(words):
-    strings = []
+    how_many_strings = 0
     for word in words:
         if len(word) >= 2 and word[0] == word[-1]:
-            strings.append(word)
-    return strings
+            how_many_strings += 1
+    return how_many_strings
 
 
 # B. front_x
@@ -37,8 +37,9 @@ def match_ends(words):
 # Hint: this can be done by making 2 lists and sorting each of them
 # before combining them.
 def front_x(words):
-    # +++your code here+++
-    return
+    non_x_words = sorted([word for word in words if word[0] != 'x'])
+    x_words = sorted([word for word in words if word[0] =='x'])
+    return x_words + non_x_words
 
 
 # C. sort_last
